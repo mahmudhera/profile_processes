@@ -18,7 +18,7 @@ def main(pid_to_monitor):
 
     # get start time of this process
     pid_this_proess = os.getpid()
-    pid_this_proess = -1
+    #pid_this_proess = -1
     
     # get info of process to monitor
     process_to_monitor = psutil.Process(pid_to_monitor)
