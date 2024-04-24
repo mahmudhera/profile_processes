@@ -48,7 +48,8 @@ def main(pid_to_monitor):
             # get creation time of process
             creation_time = float(process.create_time())
 
-            print(creation_time >= create_time_of_process_to_monitor)
+            if process.pid == pid_to_monitor:
+                print(creation_time >= create_time_of_process_to_monitor, creation_time, create_time_of_process_to_monitor, process.pid)
 
             if creation_time >= create_time_of_process_to_monitor and process.username() == user_name:
                 processes_to_benchmark.append(process)
