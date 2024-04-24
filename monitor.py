@@ -7,7 +7,7 @@ import os
 import time
 
 def get_user_name():
-    return psutil.users()[0].name
+    return 'mbr5797'
 
 def get_list_of_processes():
     return psutil.process_iter()
@@ -48,8 +48,8 @@ def main(pid_to_monitor):
             # get creation time of process
             creation_time = float(process.create_time())
 
-            if process.pid == pid_to_monitor:
-                print(creation_time >= create_time_of_process_to_monitor, creation_time, create_time_of_process_to_monitor, process.pid, process.username() == user_name, user_name, process.username())
+            #if process.pid == pid_to_monitor:
+            #    print(creation_time >= create_time_of_process_to_monitor, creation_time, create_time_of_process_to_monitor, process.pid, process.username() == user_name, user_name, process.username())
 
             if creation_time >= create_time_of_process_to_monitor and process.username() == user_name:
                 processes_to_benchmark.append(process)
