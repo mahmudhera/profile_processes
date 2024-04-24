@@ -37,7 +37,7 @@ def main(pid_to_monitor):
 
         processes_to_benchmark = []
         for process in processes:
-            if process.create_time() >= create_time_of_process_to_monitor and process.username() == user_name and process.pid != pid_this_proess:
+            if process.create_time() >= create_time_of_process_to_monitor and process.username() == user_name:
                 processes_to_benchmark.append(process)
 
         current_recorded_memory = 0.0
