@@ -4,6 +4,7 @@ import os
 def task2():
     # get the pid of this process
     pid = os.getpid()
+    print(f"PID: {pid} is also running")
     for i in range(5):
         val = 10
         for j in range(15):
