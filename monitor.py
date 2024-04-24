@@ -36,7 +36,7 @@ def main(pid_to_monitor):
     last_time_monitored = time.time()
 
     while process_to_monitor.is_running():
-        time.sleep(1)
+        time.sleep(0.1)
         # get list of processes    
         processes = get_list_of_processes()
 
@@ -63,6 +63,8 @@ def main(pid_to_monitor):
         delta_time = time.time() - last_time_monitored
         peak_memory = max(peak_memory, current_recorded_memory)
         total_cpu_time += current_recorded_cpu_percentage * delta_time / 100.0
+
+        print(current_recorded_cpu_percentage)
 
         #print(process_to_monitor, delta_time, current_recorded_cpu_percentage, total_cpu_time)
         # show how many processes are being monitored
