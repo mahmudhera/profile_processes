@@ -10,7 +10,7 @@ import os
 
 def task(pid):
     # spawn five more processes that execute task2
-    for i in range(3):
+    for i in range(10):
         cmd = "python shell_code2.py&"
         os.system(cmd)
     
