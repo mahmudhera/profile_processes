@@ -31,7 +31,7 @@ def main(pid_to_monitor):
     last_time_monitored = time.time()
 
     while process_to_monitor.is_running():
-        time.sleep(0.25)
+        time.sleep(1)
         # get list of processes    
         processes = get_list_of_processes()
 
