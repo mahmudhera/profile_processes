@@ -23,15 +23,11 @@ def main(pid_to_monitor):
     # get info of process to monitor
     process_to_monitor = psutil.Process(pid_to_monitor)
     create_time_of_process_to_monitor = process_to_monitor.create_time()
+    create_time_of_process_to_monitor = float(create_time_of_process_to_monitor)
 
     print('Monitoring process with PID:', pid_to_monitor)
     print('Process name:', process_to_monitor.name())
     print('Process create time:', create_time_of_process_to_monitor)
-
-    processes = get_list_of_processes()
-    for process in processes:
-        # print pid and creation time and user
-        print(f"PID: {process.pid} - Name: {process.name()} - User: {process.username()} - Create time: {process.create_time()}")
 
     # stats to record
     peak_memory = 0.0
@@ -44,9 +40,15 @@ def main(pid_to_monitor):
         # get list of processes    
         processes = get_list_of_processes()
 
+        # turn iterator into list
+        processes = list(processes)
+
         processes_to_benchmark = []
         for process in processes:
-            if process.create_time() >= create_time_of_process_to_monitor and process.username() == user_name:
+            # get creation time of process
+            creation_time = float(process.create_time())
+
+            if creation_time >= create_time_of_process_to_monitor and process.username() == user_name:
                 processes_to_benchmark.append(process)
 
         current_recorded_memory = 0.0
