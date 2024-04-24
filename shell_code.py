@@ -19,9 +19,8 @@ def task(pid):
     for i in range(5):
         print(f"Mother: Task {pid} is running")
         val = 10
-        for j in range(22):
+        for j in range(20):
             val = val * val
-        time.sleep(0.1)
 
 if __name__ == "__main__":
     # get the pid of this process

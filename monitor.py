@@ -18,7 +18,6 @@ def main(pid_to_monitor):
 
     # get start time of this process
     pid_this_proess = os.getpid()
-    pid_this_proess = -1
     
     # get info of process to monitor
     process_to_monitor = psutil.Process(pid_to_monitor)
@@ -51,7 +50,7 @@ def main(pid_to_monitor):
             #if process.pid == pid_to_monitor:
             #    print(creation_time >= create_time_of_process_to_monitor, creation_time, create_time_of_process_to_monitor, process.pid, process.username() == user_name, user_name, process.username())
 
-            if creation_time >= create_time_of_process_to_monitor and process.username() == user_name:
+            if creation_time >= create_time_of_process_to_monitor and process.username() == user_name and process.pid != pid_this_proess:
                 processes_to_benchmark.append(process)
 
         current_recorded_memory = 0.0
