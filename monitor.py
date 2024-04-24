@@ -24,6 +24,15 @@ def main(pid_to_monitor):
     process_to_monitor = psutil.Process(pid_to_monitor)
     create_time_of_process_to_monitor = process_to_monitor.create_time()
 
+    print('Monitoring process with PID:', pid_to_monitor)
+    print('Process name:', process_to_monitor.name())
+    print('Process create time:', create_time_of_process_to_monitor)
+
+    processes = get_list_of_processes()
+    for process in processes:
+        # print pid and creation time and user
+        print(f"PID: {process.pid} - Name: {process.name()} - User: {process.username()} - Create time: {process.create_time()}")
+
     # stats to record
     peak_memory = 0.0
     total_cpu_time = 0.0
