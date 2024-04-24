@@ -7,14 +7,12 @@ Lets see what monitor.py does.
 
 
 import os
-import time
-import multiprocessing
 
 def task(pid):
     # spawn five more processes that execute task2
-    #for i in range(3):
-    #    cmd = "python shell_code2.py&"
-    #    os.system(cmd)
+    for i in range(3):
+        cmd = "python shell_code2.py&"
+        os.system(cmd)
     
     for i in range(5):
         print(f"Mother: Task {pid} is running")
