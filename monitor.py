@@ -42,17 +42,17 @@ def main(pid_to_monitor):
 
         # turn iterator into list
         processes = list(processes)
-
         processes_to_benchmark = []
+
         for process in processes:
             # get creation time of process
             creation_time = float(process.create_time())
 
-            #if process.pid == pid_to_monitor:
-            #    print(creation_time >= create_time_of_process_to_monitor, creation_time, create_time_of_process_to_monitor, process.pid, process.username() == user_name, user_name, process.username())
-
             if creation_time >= create_time_of_process_to_monitor and process.username() == user_name and process.pid != pid_this_proess:
                 processes_to_benchmark.append(process)
+
+            if process.name == 'python':
+                print(process)
 
         current_recorded_memory = 0.0
         current_recorded_cpu_percentage = 0.0
