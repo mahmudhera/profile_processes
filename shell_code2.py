@@ -4,10 +4,11 @@ import os
 def task2():
     # get the pid of this process
     pid = os.getpid()
-    print(f"PID: {pid} is also running")
+    
     for i in range(5):
+        print(f"PID: {pid} is also running")
         val = 10
-        for j in range(15):
+        for j in range(20):
             val = val * val
 
 if __name__ == "__main__":
